@@ -1,22 +1,20 @@
-name: Dependency Check
+name: Dependency Check (Manual)
 
 on:
- push:
- pull_request:
+  workflow_dispatch:
 
 jobs:
  scan:
    runs-on: ubuntu-latest
 
    steps:
-
     - name: Checkout
       uses: actions/checkout@v4
 
     - name: Run OWASP Dependency Check
       uses: dependency-check/Dependency-Check_Action@main
       with:
-        project: sca-lab
+        project: unit3_2
         path: .
         format: HTML
 
